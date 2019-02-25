@@ -10,7 +10,8 @@ new Vue({
     startGame: function () {
         this.monsHealthbar = 100;
         this.plyrHealthbar = 100;
-        this.isGameStarted = true
+        this.isGameStarted = true;
+        this.turns=[]
     },
     attack: function() {
         var damged = this.dmgedCalculate(3, 10);
@@ -20,6 +21,7 @@ new Vue({
             text: 'Player hits for monStar ' + damged
         })
         if(this.chckWin()) {
+            this.turns=[]
             return
         }
         this.monsStarAtk();
@@ -32,6 +34,7 @@ new Vue({
         })
         this.monsHealthbar -=damged;
         if(this.chckWin()) {
+            this.turns=[]
             return
         }
         this.monsStarAtk()
